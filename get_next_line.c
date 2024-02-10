@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 06:26:58 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 06:39:30 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd >= 4096 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (0);
+	count = 0;
 	str_result = 0;
 	str_read = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!str_read)
