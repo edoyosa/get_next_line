@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 06:04:45 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 06:26:58 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_free(char *str_read, char *str_buf, size_t count)
 {
 	free(str_read);
-	if (*str_buf == 0 || count == 0)
+	if ((*str_buf == 0 || count == 0) && str_buf)
 		free(str_buf);
 }
 

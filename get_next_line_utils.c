@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:39:32 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 04:45:30 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 06:22:13 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ size_t	ft_strlen(const char *s)
 {
 	size_t	i;
 
+	if (!s)
+		return (0);
 	i = 0;
 	while (s[i] != '\0')
 		i++;
@@ -27,6 +29,8 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	size_src;
 
+	if (!dst || !src)
+		return (0);
 	size_src = ft_strlen(src);
 	i = 0;
 	if (size == 0)
@@ -43,6 +47,8 @@ char	*ft_strchr(const char *s, int c)
 {
 	unsigned char	uc;
 
+	if (!s)
+		return (0);
 	uc = c;
 	while (*s && uc != *s)
 		s++;
@@ -57,6 +63,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	i;
 	size_t	srclen;
 
+	if (!src || !dst)
+		return (0);
 	i = 0;
 	if (size == 0)
 	{
