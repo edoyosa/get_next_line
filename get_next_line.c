@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 05:55:55 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 06:04:45 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ char	*ft_new_buf(char *str_buf, size_t buf_length, unsigned int i)
 	ft_strlcpy(temp, &str_buf[i + 1], buf_length - i);
 	temp[buf_length - i - 1] = 0;
 	free(str_buf);
+	str_buf = temp;
 	return (temp);
 }
 
@@ -78,7 +79,6 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd >= 4096 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (0);
-	str_result = 0;
 	str_result = 0;
 	str_read = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!str_read)
