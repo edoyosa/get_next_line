@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 19:28:26 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:57:18 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,18 @@ void	ft_free(char *str_read, char *str_buf, size_t count)
 		free(str_buf);
 }
 
-char	*ft_first_buf(char *str_buf, char *str_read)
+char	*ft_reading_line(char *str_buf, char *str_read)
 {
-	str_buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!str_buf)
-		return (0);
-	ft_strlcpy(str_buf, str_read, BUFFER_SIZE + 1);
-	str_buf[BUFFER_SIZE] = 0;
+	{
+		str_buf = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
+		if (!str_buf)
+			return (0);
+		ft_strlcpy(str_buf, str_read, BUFFER_SIZE + 1);
+		str_buf[BUFFER_SIZE] = 0;
+	}
+	else
+		str_buf = ft_strjoin(str_buf, str_read);
 	return (str_buf);
 }
 
@@ -73,7 +78,7 @@ char	*get_next_line(int fd)
 	char		*str_read;
 	static char	*str_buf;
 	char		*str_result;
-	size_t		count;
+	int			count;
 
 	if (fd < 0 || fd >= 4096 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (0);
@@ -85,11 +90,10 @@ char	*get_next_line(int fd)
 	while (str_result == 0)
 	{
 		count = read(fd, str_read, BUFFER_SIZE);
+		if (count < 0)
+			return (0);
 		str_read[count] = 0;
-		if (!str_buf)
-			str_buf = ft_first_buf(str_buf, str_read);
-		else
-			str_buf = ft_strjoin(str_buf, str_read);
+		str_buf = ft_reading_line(str_buf, str_read);
 		if (count == 0 || ft_strchr(str_read, '\n'))
 			str_result = ft_create_res(str_buf, str_result);
 	}
