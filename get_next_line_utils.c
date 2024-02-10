@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:39:32 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 19:23:25 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:20:07 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,15 +81,17 @@ char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*str;
 	size_t	totlen;
+	size_t	s1_len;
 
 	if (!s1 || !s2)
 		return (0);
-	totlen = ft_strlen(s1) + ft_strlen(s2);
+	s1_len = ft_strlen(s1);
+	totlen = s1_len + ft_strlen(s2);
 	str = (char *)malloc(sizeof(char) * totlen + 1);
 	if (!str)
 		return (0);
 	ft_strlcpy(str, s1, totlen + 1);
-	str[totlen] = '\0';
+	str[s1_len] = '\0';
 	ft_strlcat(str, s2, totlen + 1);
 	free (s1);
 	return (str);
