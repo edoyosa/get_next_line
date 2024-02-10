@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 06:39:30 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:35:13 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_free(char *str_read, char *str_buf, size_t count)
 {
 	free(str_read);
-	if ((*str_buf == 0 || count == 0) && str_buf)
+	if (*str_buf == 0 || count == 0)
 		free(str_buf);
 }
 
@@ -39,7 +39,6 @@ char	*ft_new_buf(char *str_buf, size_t buf_length, unsigned int i)
 	ft_strlcpy(temp, &str_buf[i + 1], buf_length - i);
 	temp[buf_length - i - 1] = 0;
 	free(str_buf);
-	str_buf = temp;
 	return (temp);
 }
 
@@ -90,9 +89,9 @@ char	*get_next_line(int fd)
 		str_read[count] = 0;
 		if (!str_buf)
 			str_buf = ft_first_buf(str_buf, str_read);
-		else if (count != 0)
+		else
 			str_buf = ft_strjoin(str_buf, str_read);
-		if (count == 0 || !str_buf || ft_strchr(str_buf, '\n'))
+		if (count == 0 || ft_strchr(str_buf, '\n'))
 			str_result = ft_create_res(str_buf);
 	}
 	ft_free(str_read, str_buf, count);

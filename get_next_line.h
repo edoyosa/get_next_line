@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:32:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 05:20:43 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 18:36:33 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,10 @@ char	*ft_new_buf(char *str_buf, size_t buf_length, unsigned int i);
 char	*ft_create_res(char *str_buf);
 char	*get_next_line(int fd);
 
-char	*ft_strchr(const char *s, int c);
-char	*ft_strjoin(char *s1, char const *s2);
-size_t	ft_strlcat(char *dst, const char *src, size_t size);
-size_t	ft_strlcpy(char *dst, const char *src, size_t size);
-size_t	ft_strlen(const char *s);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *s1, char *s2);
+size_t	ft_strlcat(char *dst, char *src, size_t size);
+size_t	ft_strlcpy(char *dst, char *src, size_t size);
+size_t	ft_strlen(char *s);
 
 #endif
