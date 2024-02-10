@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:32:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 19:23:47 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:29:13 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@
 void	ft_free(char *str_read, char *str_buf, size_t count);
 char	*ft_first_buf(char *str_buf, char *str_read);
 char	*ft_new_buf(char *str_buf, size_t buf_length, unsigned int i);
-char	*ft_create_res(char *str_buf);
+char	*ft_create_res(char *str_buf, char *res);
 char	*get_next_line(int fd);
 
 char	ft_strchr(char *s, int c);
