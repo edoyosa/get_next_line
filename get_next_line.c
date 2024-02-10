@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 18:35:13 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:16:17 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char	*get_next_line(int fd)
 			str_buf = ft_first_buf(str_buf, str_read);
 		else
 			str_buf = ft_strjoin(str_buf, str_read);
-		if (count == 0 || ft_strchr(str_buf, '\n'))
+		if (count == 0 || ft_strchr(str_read, '\n'))
 			str_result = ft_create_res(str_buf);
 	}
 	ft_free(str_read, str_buf, count);

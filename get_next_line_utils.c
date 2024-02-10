@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:39:32 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 18:37:13 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 19:23:25 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ size_t	ft_strlcpy(char *dst, char *src, size_t size)
 	return (size_src);
 }
 
-char	*ft_strchr(char *s, int c)
+char	ft_strchr(char *s, int c)
 {
 	unsigned char	uc;
 
@@ -48,7 +48,7 @@ char	*ft_strchr(char *s, int c)
 		s++;
 	if (!(*s) && uc)
 		return (0);
-	return ((char *)s);
+	return ((char)uc);
 }
 
 size_t	ft_strlcat(char *dst, char *src, size_t size)
