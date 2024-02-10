@@ -82,7 +82,6 @@ char	*get_next_line(int fd)
 
 	if (fd < 0 || fd >= 4096 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (0);
-	count = 0;
 	str_result = 0;
 	str_read = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!str_read)
@@ -94,6 +93,8 @@ char	*get_next_line(int fd)
 			return (0);
 		str_read[count] = 0;
 		str_buf = ft_reading_line(str_buf, str_read);
+		if (!str_buf)
+			return (0);
 		if (count == 0 || ft_strchr(str_read, '\n'))
 			str_result = ft_create_res(str_buf, str_result);
 	}
