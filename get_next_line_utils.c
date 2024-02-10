@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:39:32 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 20:20:07 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 20:25:04 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,6 @@ size_t	ft_strlcat(char *dst, char *src, size_t size)
 		dst[dstlen + i] = src[i];
 		i++;
 	}
-	if (dstlen < size)
-		dst[dstlen + i] = '\0';
-	else
-		return (srclen + size);
 	return (dstlen + srclen);
 }
 
@@ -93,6 +89,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strlcpy(str, s1, totlen + 1);
 	str[s1_len] = '\0';
 	ft_strlcat(str, s2, totlen + 1);
+	str[totlen] = '\0';
 	free (s1);
 	return (str);
 }
