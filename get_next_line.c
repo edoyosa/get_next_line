@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/06 18:35:54 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/10 05:23:14 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/10 05:55:55 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_free(char *str_read, char *str_buf, size_t count)
 {
 	free(str_read);
-	if (*str_buf == 0 || !count)
+	if (*str_buf == 0 || count == 0)
 		free(str_buf);
 }
 
@@ -50,7 +50,7 @@ char	*ft_create_res(char *str_buf)
 
 	buf_length = ft_strlen(str_buf);
 	i = 0;
-	while (str_buf[i] != '\n' || str_buf[i] != 0)
+	while (str_buf[i] != '\n' && str_buf[i] != 0)
 		i++;
 	if (str_buf[i])
 		res = (char *)malloc(sizeof(char) * i + 1);
@@ -79,18 +79,19 @@ char	*get_next_line(int fd)
 	if (fd < 0 || fd >= 4096 || fd == 1 || fd == 2 || BUFFER_SIZE <= 0)
 		return (0);
 	str_result = 0;
+	str_result = 0;
 	str_read = (char *)malloc(sizeof(char) * BUFFER_SIZE + 1);
 	if (!str_read)
 		return (0);
-	while (!str_result)
+	while (str_result == 0)
 	{
 		count = read(fd, str_read, BUFFER_SIZE);
 		str_read[count] = 0;
 		if (!str_buf)
 			str_buf = ft_first_buf(str_buf, str_read);
-		else
+		else if (count != 0)
 			str_buf = ft_strjoin(str_buf, str_read);
-		if (ft_strchr(str_buf, '\n') || !count)
+		if (count == 0 || !str_buf || ft_strchr(str_buf, '\n'))
 			str_result = ft_create_res(str_buf);
 	}
 	ft_free(str_read, str_buf, count);
