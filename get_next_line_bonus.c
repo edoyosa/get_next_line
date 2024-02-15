@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:12:46 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/15 11:24:07 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/15 11:42:19 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_n_line(char *str)
 {
@@ -59,7 +59,7 @@ char	*ft_reads(int fd, char *str, char *newline)
 
 char	*get_next_line(int fd)
 {
-	static char	*str;
+	static char	*str[4096];
 	char		*line;
 	char		*buf;
 
@@ -68,11 +68,11 @@ char	*get_next_line(int fd)
 	buf = (char *)malloc(sizeof(char) * (BUFFER_SIZE + 1));
 	if (!buf)
 		return (0);
-	line = ft_reads(fd, buf, str);
+	line = ft_reads(fd, buf, str[fd]);
 	free(buf);
 	buf = 0;
 	if (!line)
 		return (0);
-	str = ft_n_line(line);
+	str[fd] = ft_n_line(line);
 	return (line);
 }

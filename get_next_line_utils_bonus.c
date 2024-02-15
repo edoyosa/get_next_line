@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line_utils_bonus.c                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/02/15 11:16:49 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/15 11:28:47 by ebellini         ###   ########.fr       */
+/*   Created: 2024/02/15 11:44:54 by ebellini          #+#    #+#             */
+/*   Updated: 2024/02/15 11:46:02 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 size_t	ft_strlen(const char *s)
 {
