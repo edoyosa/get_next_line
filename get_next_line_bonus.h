@@ -6,7 +6,7 @@
 /*   By: ebellini <ebellini@student.42roma.it>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:42:58 by ebellini          #+#    #+#             */
-/*   Updated: 2024/02/15 11:43:36 by ebellini         ###   ########.fr       */
+/*   Updated: 2024/02/15 12:59:37 by ebellini         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_BONUS_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 42
+#  define BUFFER_SIZE 4
 # endif
 
 # include <stdio.h>
